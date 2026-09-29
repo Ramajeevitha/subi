@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080808" />
+      <stop offset="50%" stop-color="#141414" />
+      <stop offset="100%" stop-color="#050505" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF4625" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#FF7A00" stop-opacity="0.2" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#222222" stroke-width="1" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)" />
+  <rect width="1200" height="800" fill="url(#grid)" opacity="0.6" />
+  
+  <!-- Abstract Athletic Lines -->
+  <path d="M -100 800 L 700 0 L 750 0 L -50 800 Z" fill="#FF4625" opacity="0.15" />
+  <path d="M 100 800 L 900 0 L 960 0 L 160 800 Z" fill="url(#glow)" opacity="0.3" />
+  <circle cx="950" cy="250" r="280" fill="#FF4625" opacity="0.08" filter="blur(60px)" />
+  
+  <!-- Dynamic Speed Marks -->
+  <line x1="100" y1="360" x2="300" y2="360" stroke="#FF4625" stroke-width="6" stroke-linecap="round" />
+  
+  <!-- Text -->
+  <text x="100" y="440" font-family="'Impact', 'Bebas Neue', sans-serif" font-size="76" font-weight="900" fill="#FFFFFF" letter-spacing="4">
+    PEAK VELOCITY
+  </text>
+  <text x="100" y="500" font-family="'Inter', sans-serif" font-size="24" font-weight="600" fill="#A0A0A0" letter-spacing="2">
+    42.8 KM/H ACCELERATION
+  </text>
+  <text x="100" y="700" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#FF4625" letter-spacing="6">
+    ALEX RIVERA • PRO ATHLETE ARCHIVE
+  </text>
+  
+  <rect x="980" y="660" width="140" height="44" rx="4" fill="#181818" stroke="#333" stroke-width="1" />
+  <text x="1050" y="688" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+    OFFICIAL
+  </text>
+</svg>

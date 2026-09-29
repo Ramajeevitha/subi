@@ -1,0 +1,1675 @@
+/* ============================================================================
+   SECTIONS CSS — PLAIN SOLID BLACK SYSTEM & CLEAN TYPOGRAPHY HIERARCHY
+   No overlapping text, generous line-heights, solid #000000 background
+   ============================================================================ */
+
+/* ============================================================================
+   HERO SECTION (SPORTS CAMPAIGN POSTER COMPOSITION)
+   ============================================================================ */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--navbar-height);
+  padding-bottom: 4rem;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transform: scale(1.04);
+  filter: contrast(1.15) brightness(0.5);
+  animation: heroSlowZoom 18s infinite alternate ease-in-out;
+}
+
+@keyframes heroSlowZoom {
+  0% { transform: scale(1.02); }
+  100% { transform: scale(1.08); }
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 35%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 65%, #000000 100%),
+              linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.75) 60%, #000000 100%),
+              linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.55) 50%, rgba(0, 0, 0, 0.35) 100%);
+  pointer-events: none;
+}
+
+.hero-light-streak {
+  position: absolute;
+  top: -10%;
+  right: 15%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, var(--accent-primary-glow) 0%, transparent 70%);
+  filter: blur(140px);
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1050px;
+  padding-top: 1.5rem;
+}
+
+.hero-top-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-meta-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.hero-meta-tag {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  background: rgba(255, 77, 0, 0.08);
+  padding: 4px 10px;
+  border-left: 2px solid var(--accent-primary);
+}
+
+.hero-title {
+  font-size: var(--text-hero);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  margin-bottom: 1.75rem;
+  text-transform: uppercase;
+  text-shadow: 0 4px 35px rgba(0, 0, 0, 0.95);
+}
+
+.hero-title-line {
+  display: block;
+  margin-bottom: 0.08em;
+}
+
+.hero-title-line.accent-line {
+  color: var(--accent-primary);
+  text-shadow: 0 0 45px var(--accent-primary-glow);
+}
+
+.hero-speed-line-wrap {
+  width: 100%;
+  max-width: 280px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-speed-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
+  animation: heroLineRun 2.5s infinite ease-in-out;
+}
+
+@keyframes heroLineRun {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
+
+.hero-quote {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  color: var(--text-secondary);
+  max-width: 620px;
+  line-height: 1.65;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.hero-scroll-btn {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 10;
+  color: var(--text-tertiary);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.hero-scroll-btn:hover {
+  color: var(--accent-primary);
+}
+
+.hero-scroll-arrow {
+  animation: bounceDown 2s infinite ease-in-out;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ============================================================================
+   INTRODUCTION (01 / A MEMORY • MORE THAN AN ATHLETE)
+   ============================================================================ */
+
+.intro-section {
+  background-color: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-editorial-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 992px) {
+  .intro-editorial-layout {
+    grid-template-columns: 0.9fr 1.2fr;
+    gap: 4.5rem;
+  }
+}
+
+.intro-portrait-wrap {
+  position: relative;
+}
+
+.intro-portrait-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 540px;
+  overflow: hidden;
+  background-color: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.intro-portrait-frame .image-container,
+.intro-portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: contrast(1.1) brightness(0.7) grayscale(20%);
+  transition: transform 0.8s var(--ease-editorial), filter 0.8s var(--ease-editorial);
+}
+
+.intro-portrait-frame:hover .image-container,
+.intro-portrait-frame:hover img {
+  transform: scale(1.05);
+  filter: contrast(1.15) brightness(0.85) grayscale(0%);
+}
+
+.intro-portrait-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.92) 100%);
+  pointer-events: none;
+}
+
+.intro-portrait-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  height: 2px;
+  background: var(--accent-primary);
+  box-shadow: 0 0 12px var(--accent-primary-glow);
+}
+
+.intro-text-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-huge-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-top: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.intro-huge-title span {
+  display: block;
+  margin-bottom: 0.08em;
+}
+
+.intro-quote-card {
+  padding: 1.5rem 1.75rem;
+  background-color: #080808;
+  border-left: 2px solid var(--accent-primary);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 2rem;
+}
+
+.intro-statement-1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  line-height: 1.35;
+}
+
+.intro-statement-2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  letter-spacing: var(--tracking-wide);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.intro-statement-2 .statement-accent {
+  color: var(--accent-primary);
+  text-shadow: 0 0 30px var(--accent-primary-glow);
+}
+
+.intro-paragraph {
+  font-size: var(--text-body-lg);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+/* ============================================================================
+   MORE THAN A FRIEND SECTION
+   ============================================================================ */
+
+.more-than-friend-section {
+  background-color: #000000;
+  position: relative;
+  text-align: center;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.friend-statement-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.friend-huge-title {
+  font-size: clamp(3.2rem, 8.5vw, 7.2rem);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.friend-huge-title span {
+  display: block;
+  margin-bottom: 0.1em;
+}
+
+.friend-huge-title .accent-glow {
+  color: var(--accent-primary);
+  text-shadow: 0 0 45px var(--accent-primary-glow);
+}
+
+.brother-reveal-box {
+  background: rgba(255, 77, 0, 0.05);
+  border: 1px solid var(--accent-primary);
+  border-radius: var(--radius-xs);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(2rem, 5vw, 4rem);
+  box-shadow: 0 15px 45px rgba(255, 77, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+.brother-reveal-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.5vw, 4.4rem);
+  line-height: 1.15;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.friend-paragraph-box {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.friend-quote-line {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  font-weight: 700;
+  color: var(--accent-gold);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.friend-quote-body {
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  color: #C8C8C8;
+  line-height: 1.8;
+}
+
+/* ============================================================================
+   OUR JOURNEY — 2014 → 2026 → FOREVER
+   ============================================================================ */
+
+.brotherhood-journey-section {
+  background-color: #000000;
+  position: relative;
+}
+
+.brotherhood-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 4.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.brotherhood-card {
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sharp);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-editorial);
+}
+
+.brotherhood-card:hover {
+  background: #0e0e0e;
+  border-color: rgba(255, 77, 0, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+}
+
+.brotherhood-card.highlight-now-card {
+  border-color: var(--accent-primary);
+  background: linear-gradient(165deg, rgba(255, 77, 0, 0.08) 0%, #0a0a0a 100%);
+  box-shadow: 0 0 30px rgba(255, 77, 0, 0.1);
+}
+
+.brotherhood-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.brotherhood-badge {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--accent-primary);
+  background: var(--accent-primary-dim);
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+.brotherhood-year {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--text-tertiary);
+}
+
+.brotherhood-icon-bubble {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-xs);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  margin-bottom: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.brotherhood-card:hover .brotherhood-icon-bubble {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.brotherhood-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.brotherhood-lead {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin-bottom: 0.75rem;
+  line-height: 1.45;
+}
+
+.brotherhood-story {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.brotherhood-tag-pill {
+  margin-top: auto;
+  align-self: flex-start;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  letter-spacing: var(--tracking-wider);
+}
+
+/* Bus Speed-Line Animation */
+.bus-speed-lines-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.18;
+}
+
+.bus-road-dash {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  animation: roadRun 2s infinite linear;
+}
+
+.dash-1 { top: 25%; width: 40%; animation-delay: 0s; }
+.dash-2 { top: 55%; width: 70%; animation-delay: 0.7s; }
+.dash-3 { top: 80%; width: 50%; animation-delay: 1.4s; }
+
+@keyframes roadRun {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-200%); }
+}
+
+/* Typography Evolution: FRIEND → BEST FRIEND → BROTHER */
+.evolution-transition-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding: 2.5rem 2rem;
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sharp);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
+  position: relative;
+  z-index: 2;
+}
+
+.evolution-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.evolution-label {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-muted);
+}
+
+.evolution-word {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.8vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+}
+
+.evolution-word.word-gold {
+  color: var(--accent-gold);
+}
+
+.evolution-word.word-accent {
+  color: var(--accent-primary);
+  text-shadow: 0 0 25px var(--accent-primary-glow);
+}
+
+.evolution-arrow {
+  color: var(--text-tertiary);
+}
+
+/* ============================================================================
+   "2014 — 2026" / "12 YEARS" / "FOREVER"
+   ============================================================================ */
+
+.years-twelve-section {
+  background-color: #000000;
+  position: relative;
+  text-align: center;
+}
+
+.years-twelve-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.huge-year-range {
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 11vw, 9.5rem);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  text-shadow: 0 4px 45px rgba(0, 0, 0, 0.95);
+  margin-bottom: 2.5rem;
+}
+
+.twelve-summary-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.summary-line {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.15;
+  letter-spacing: var(--tracking-editorial);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.summary-brother {
+  color: var(--accent-primary);
+  text-shadow: 0 0 35px var(--accent-primary-glow);
+}
+
+.bridge-text {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  color: var(--text-tertiary);
+  font-style: italic;
+  margin-bottom: 3rem;
+  line-height: 1.5;
+}
+
+.infinity-progression-card {
+  background: #080808;
+  border: 1px solid rgba(255, 77, 0, 0.35);
+  border-radius: var(--radius-sharp);
+  padding: 2.25rem clamp(2rem, 5vw, 4rem);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.9);
+}
+
+.infinity-equation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-editorial);
+}
+
+.arrow-sep {
+  color: var(--text-tertiary);
+}
+
+.infinity-symbol-wrap {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent-gold);
+}
+
+.infinity-animated {
+  animation: floatInf 3s infinite ease-in-out;
+}
+
+@keyframes floatInf {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.18) rotate(6deg); filter: drop-shadow(0 0 12px var(--accent-gold)); }
+}
+
+.forever-glowing-text {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--accent-gold);
+  text-transform: uppercase;
+}
+
+/* ============================================================================
+   "LIFE WILL CHANGE" EMOTIONAL MESSAGE
+   ============================================================================ */
+
+.emotional-message-section {
+  background-color: #000000;
+  position: relative;
+  text-align: center;
+}
+
+.emotional-message-box {
+  max-width: 920px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.message-lines-sequence {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.message-flow-line {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+  color: #C0C0C0;
+  line-height: 1.55;
+}
+
+.message-climax-box {
+  margin-bottom: 3.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.message-climax-heading {
+  font-size: clamp(2.8rem, 7.5vw, 6.2rem);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-shadow: 0 0 45px rgba(255, 255, 255, 0.25);
+}
+
+.message-echoes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.echo-item {
+  font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+.echo-brother-highlight {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--accent-primary);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  margin-top: 1rem;
+  text-shadow: 0 0 30px var(--accent-primary-glow);
+}
+
+/* ============================================================================
+   REDESIGNED MEMORIES ARCHIVE SECTION
+   ============================================================================ */
+
+.archive-section {
+  background-color: #000000;
+  position: relative;
+}
+
+.archive-header-wrap {
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+  position: relative;
+  z-index: 2;
+}
+
+.archive-title {
+  font-size: clamp(3rem, 8.5vw, 7.5rem);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.title-accent-keep {
+  color: var(--accent-primary);
+  text-shadow: 0 0 35px var(--accent-primary-glow);
+}
+
+.archive-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-subtitle);
+  color: var(--text-tertiary);
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+.archive-header-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-top: 2rem;
+}
+
+/* Asymmetrical Editorial Portrait Grid */
+.archive-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.archive-card {
+  position: relative;
+  overflow: hidden;
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sharp);
+  min-height: 560px;
+  height: 560px;
+  transform: rotate(var(--desktop-rotate, 0deg));
+  transition: transform var(--transition-editorial), border-color var(--transition-normal), box-shadow var(--transition-normal);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.archive-card:hover {
+  transform: rotate(0deg) translateY(-8px);
+  border-color: rgba(255, 77, 0, 0.45);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 25px var(--accent-primary-glow);
+  z-index: 5;
+}
+
+.archive-card.card-asym-1 {
+  grid-column: span 2;
+}
+
+.archive-card.card-asym-2 {
+  grid-column: span 2;
+}
+
+.archive-card.card-asym-3 {
+  grid-column: span 2;
+}
+
+.archive-card.card-asym-4 {
+  grid-column: 2 / span 2;
+}
+
+.archive-card.card-asym-5 {
+  grid-column: 4 / span 2;
+}
+
+.archive-card-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.archive-card-media .image-container,
+.archive-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transform: scale(1.02);
+  transition: transform var(--transition-editorial), filter var(--transition-normal);
+}
+
+.archive-card:hover .archive-card-media .image-container,
+.archive-card:hover .archive-card-media img {
+  transform: scale(1.06);
+  filter: brightness(1.08);
+}
+
+.archive-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 45%, rgba(0, 0, 0, 0.6) 72%, rgba(0, 0, 0, 0.96) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.archive-card-num {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 0.25rem 0.55rem;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(4px);
+  z-index: 3;
+}
+
+.archive-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  transition: transform var(--transition-normal);
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.35) 25%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+.archive-card:hover .archive-card-content {
+  transform: translateY(-4px);
+}
+
+.archive-card-year {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.archive-card-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: var(--tracking-editorial);
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+.archive-card-desc {
+  font-size: 0.86rem;
+  color: #D6D6D6;
+  line-height: 1.5;
+  max-width: 95%;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
+}
+
+.archive-hover-line {
+  width: 0px;
+  height: 2px;
+  background: var(--accent-primary);
+  margin-top: 0.75rem;
+  box-shadow: 0 0 8px var(--accent-primary);
+  transition: width var(--transition-normal);
+}
+
+.archive-card:hover .archive-hover-line {
+  width: 60px;
+}
+
+/* ============================================================================
+   FINAL HERO ATHLETE CARD (IN ARCHIVE)
+   ============================================================================ */
+
+.athlete-hero-card-container {
+  margin-top: 4.5rem;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.athlete-hero-card {
+  position: relative;
+  width: 100%;
+  min-height: 720px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sharp);
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(2.5rem, 6vw, 5rem);
+}
+
+.athlete-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.athlete-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  transform: scale(1.05);
+  filter: brightness(0.65) contrast(1.15);
+  transition: transform var(--transition-slow);
+}
+
+.athlete-hero-card:hover .athlete-hero-bg img {
+  transform: scale(1.08);
+}
+
+.athlete-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0.98) 100%),
+              linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+  pointer-events: none;
+}
+
+.athlete-hero-radial-glow {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255, 77, 0, 0.18) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.athlete-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+}
+
+.athlete-hero-label {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.athlete-hero-headline {
+  font-size: clamp(2.8rem, 7.5vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.headline-accent {
+  color: var(--accent-primary);
+  text-shadow: 0 0 45px var(--accent-primary-glow);
+}
+
+.athlete-hero-p1 {
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  color: #D6D6D6;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.athlete-hero-lead-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.athlete-hero-p2 {
+  font-size: 1.1rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+.athlete-hero-highlight {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: var(--tracking-editorial);
+  text-transform: uppercase;
+  margin: 0.25rem 0;
+}
+
+.athlete-hero-p3 {
+  font-size: 1.15rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Animated Travelling Speed Line */
+.athlete-travelling-line-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.athlete-travelling-line {
+  position: absolute;
+  height: 100%;
+  width: 180px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+  animation: travelSpeedLine 4.5s infinite linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speed-line-tag {
+  position: absolute;
+  top: -18px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--accent-primary);
+  white-space: nowrap;
+}
+
+@keyframes travelSpeedLine {
+  0% { left: -200px; }
+  100% { left: 105%; }
+}
+
+/* ============================================================================
+   MEMORY SECTION ENDING TRANSITION
+   ============================================================================ */
+
+.archive-ending-transition {
+  margin-top: clamp(120px, 16vw, 180px);
+  text-align: center;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.ending-transition-headline {
+  font-size: clamp(2.8rem, 7.5vw, 6.2rem);
+  line-height: 1.08;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.ending-keep-statement {
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 9.5vw, 8rem);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-editorial);
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  text-shadow: 0 0 55px var(--accent-primary-glow);
+  margin-bottom: 1.75rem;
+}
+
+.ending-subtext {
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  color: #C8C8C8;
+  line-height: 1.65;
+  max-width: 740px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.ending-watermark-rolemodel {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 11vw, 9.5rem);
+  font-weight: 900;
+  letter-spacing: var(--tracking-editorial);
+  color: rgba(255, 255, 255, 0.02);
+  line-height: 1;
+  text-transform: uppercase;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ============================================================================
+   THE EMOTIONAL LETTER
+   ============================================================================ */
+
+.letter-section {
+  background-color: #000000;
+  position: relative;
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.letter-paper-card {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sharp);
+  padding: clamp(2.5rem, 6vw, 4.8rem);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95);
+  position: relative;
+  z-index: 2;
+}
+
+.letter-header-tag {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.letter-title {
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 1.5rem;
+}
+
+.letter-salutation {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 1.75rem;
+  line-height: 1.3;
+}
+
+.letter-body-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+  line-height: 1.8;
+  color: #D2D2D2;
+}
+
+.letter-body-paragraphs p {
+  color: #D2D2D2;
+  line-height: 1.8;
+}
+
+.letter-body-paragraphs .brother-emphasis {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  color: var(--accent-primary);
+  padding: 0.4rem 0;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.35;
+}
+
+.letter-body-paragraphs .short-echo-line {
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.letter-signature-block {
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.letter-sign-off {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.forever-signature-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.letter-signature-forever {
+  font-family: var(--font-handwriting);
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+  text-shadow: 0 0 20px rgba(255, 77, 0, 0.4);
+}
+
+.forever-glow-underline {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-gold) 100%);
+  margin-top: 4px;
+  box-shadow: 0 0 12px var(--accent-primary-glow);
+}
+
+/* ============================================================================
+   FINAL BLACK SCREEN SEQUENCE
+   ============================================================================ */
+
+.final-black-screen-section {
+  background-color: #000000;
+  position: relative;
+  text-align: center;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(5rem, 12vw, 9rem) var(--section-padding-x);
+}
+
+.final-screen-box {
+  max-width: 920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.final-year-start {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-wider);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.final-year-span {
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 9.5vw, 7.5rem);
+  color: #FFFFFF;
+  line-height: 1.05;
+  letter-spacing: var(--tracking-editorial);
+  margin-bottom: 1.5rem;
+}
+
+.final-still-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  color: var(--text-tertiary);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.final-huge-forever {
+  font-size: clamp(4.2rem, 14vw, 10.5rem);
+  line-height: 1;
+  letter-spacing: var(--tracking-editorial);
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  text-shadow: 0 0 65px var(--accent-primary-glow);
+  margin-bottom: 1.5rem;
+}
+
+.forever-accent-line {
+  width: 80px;
+  height: 3px;
+  background: var(--accent-primary);
+  margin-bottom: 2.5rem;
+  box-shadow: 0 0 15px var(--accent-primary);
+}
+
+.final-family-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+  color: #E2E2E2;
+  margin-bottom: 2.5rem;
+  line-height: 1.55;
+}
+
+.final-declarations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.final-declarations span {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 3.4rem);
+  color: var(--text-secondary);
+  line-height: 1.15;
+  letter-spacing: var(--tracking-editorial);
+}
+
+.final-declarations .declaration-brother {
+  color: var(--accent-gold);
+}
+
+.final-screen-signoff {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+/* ============================================================================
+   FINAL BIRTHDAY MESSAGE
+   ============================================================================ */
+
+.final-birthday-section {
+  position: relative;
+  background: #000000;
+  background-color: #000000;
+  text-align: center;
+  overflow: hidden;
+  padding: clamp(5rem, 10vw, 8rem) var(--section-padding-x);
+}
+
+.final-birthday-box {
+  max-width: 920px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.final-birthday-heading {
+  font-size: clamp(3.2rem, 9.5vw, 7.5rem);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 0 50px var(--accent-primary-glow);
+}
+
+.final-birthday-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.birthday-pillar-line {
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  color: #E6E6E6;
+  line-height: 1.6;
+}
+
+.final-timeline-tag {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  letter-spacing: var(--tracking-editorial);
+  color: var(--accent-gold);
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+}
+
+.final-closing-sign {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+/* ============================================================================
+   CTA & FOOTER
+   ============================================================================ */
+
+.cta-section {
+  background-color: #000000;
+  text-align: center;
+  padding: clamp(4rem, 8vw, 6.5rem) var(--section-padding-x);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cta-box {
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-title {
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.cta-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.site-footer {
+  background-color: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: var(--tracking-editorial);
+  color: #FFFFFF;
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+.footer-quote {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.footer-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ============================================================================
+   RESPONSIVE BREAKPOINTS (EDITORIAL MOBILE-FIRST SYSTEM)
+   ============================================================================ */
+
+@media (max-width: 1024px) {
+  .brotherhood-timeline-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .archive-editorial-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .archive-card.card-asym-1,
+  .archive-card.card-asym-2,
+  .archive-card.card-asym-3,
+  .archive-card.card-asym-4 {
+    grid-column: span 1 !important;
+    height: 520px;
+    min-height: 520px;
+  }
+
+  .archive-card.card-asym-5 {
+    grid-column: 1 / -1 !important;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+    height: 520px;
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brotherhood-timeline-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .archive-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .archive-card,
+  .archive-card.card-asym-1,
+  .archive-card.card-asym-2,
+  .archive-card.card-asym-3,
+  .archive-card.card-asym-4,
+  .archive-card.card-asym-5 {
+    grid-column: span 1 !important;
+    transform: rotate(0deg) !important;
+    height: 540px !important;
+    min-height: 540px !important;
+    max-width: 100% !important;
+  }
+
+  .archive-card:hover {
+    transform: none !important;
+  }
+
+  .athlete-hero-card {
+    min-height: 75vh;
+    padding: 2rem 1.5rem;
+  }
+
+  .evolution-transition-wrap {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .evolution-arrow {
+    transform: rotate(90deg);
+  }
+
+  .letter-paper-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .archive-card,
+  .archive-card.card-asym-1,
+  .archive-card.card-asym-2,
+  .archive-card.card-asym-3,
+  .archive-card.card-asym-4,
+  .archive-card.card-asym-5 {
+    height: 500px !important;
+    min-height: 500px !important;
+  }
+
+  .archive-card-content {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .athlete-hero-card {
+    min-height: 78vh;
+  }
+}

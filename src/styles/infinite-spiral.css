@@ -1,0 +1,336 @@
+/* ============================================================================
+   INFINITE SPIRAL 3D PHOTO GALLERY
+   ============================================================================ */
+
+.spiral-gallery-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 2rem 0;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.spiral-viewport {
+  position: relative;
+  width: 100%;
+  height: clamp(440px, 60vh, 620px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y pinch-zoom;
+}
+
+.spiral-viewport:active {
+  cursor: grabbing;
+}
+
+/* 3D World Scene */
+.spiral-world {
+  position: relative;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* 3D Spiral Card */
+.spiral-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(180px, 24vw, 260px);
+  height: clamp(250px, 34vw, 360px);
+  margin-top: calc(clamp(250px, 34vw, 360px) / -2);
+  margin-left: calc(clamp(180px, 24vw, 260px) / -2);
+  transform-style: preserve-3d;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+  cursor: pointer;
+}
+
+.spiral-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 25px var(--accent-primary-glow), 0 20px 40px rgba(0, 0, 0, 0.9);
+  z-index: 50;
+}
+
+.spiral-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.spiral-card-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.spiral-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spiral-card:hover .spiral-card-media img {
+  transform: scale(1.08);
+}
+
+/* Card Gradient Overlay & Content */
+.spiral-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(7, 7, 7, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem 1rem;
+  transition: background var(--transition-fast);
+}
+
+.spiral-card:hover .spiral-card-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(7, 7, 7, 0.98) 100%);
+}
+
+.spiral-card-badge {
+  align-self: flex-start;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  background: rgba(255, 70, 37, 0.2);
+  border: 1px solid var(--accent-primary);
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+  margin-bottom: 0.4rem;
+}
+
+.spiral-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  color: #FFFFFF;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.spiral-card-date {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+/* Spiral Controls Bar */
+.spiral-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(8px);
+}
+
+.spiral-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.spiral-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spiral-ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-xs);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.spiral-ctrl-btn:hover {
+  color: #FFFFFF;
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+/* Lightbox Modal */
+.gallery-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.gallery-modal-content {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.gallery-modal-close:hover {
+  background: var(--accent-primary);
+  transform: scale(1.1);
+}
+
+.gallery-modal-image-wrap {
+  width: 100%;
+  max-height: 65vh;
+  overflow: hidden;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-modal-image-wrap img {
+  max-height: 65vh;
+  width: 100%;
+  object-fit: contain;
+}
+
+.gallery-modal-info {
+  padding: 1.5rem;
+  background: #141414;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gallery-modal-text h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.gallery-modal-text p {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+}
+
+/* ============================================================================
+   MOBILE OPTIMIZATIONS FOR INFINITE SPIRAL
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .spiral-viewport {
+    height: 420px;
+    perspective: 700px;
+  }
+
+  .spiral-card {
+    width: 160px;
+    height: 230px;
+    margin-top: -115px;
+    margin-left: -80px;
+  }
+
+  .spiral-card-title {
+    font-size: 1rem;
+  }
+
+  .spiral-controls {
+    justify-content: center;
+  }
+
+  .gallery-modal-backdrop {
+    padding: 1rem;
+  }
+
+  .gallery-modal-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .spiral-viewport {
+    height: 360px;
+    perspective: 550px;
+  }
+
+  .spiral-card {
+    width: 135px;
+    height: 195px;
+    margin-top: -97px;
+    margin-left: -67px;
+  }
+
+  .spiral-card-overlay {
+    padding: 0.75rem 0.5rem;
+  }
+}

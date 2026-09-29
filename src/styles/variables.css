@@ -1,0 +1,86 @@
+:root {
+  /* Core Plain Black Surfaces */
+  --bg-darkest: #000000;
+  --bg-primary: #000000;
+  --bg-secondary: #050505;
+  --surface-primary: #0a0a0a;
+  --surface-secondary: #0e0e0e;
+  --surface-card: #0a0a0a;
+  --surface-glass: rgba(0, 0, 0, 0.95);
+
+  /* Athletic Documentary Accent */
+  --accent-primary: #FF4D00;        /* Pure Nike/Docu Electric Orange */
+  --accent-primary-hover: #FF6622;
+  --accent-primary-glow: rgba(255, 77, 0, 0.25);
+  --accent-primary-dim: rgba(255, 77, 0, 0.08);
+  --accent-gold: #FFAE00;           /* Warm Golden Ember */
+  --accent-gold-glow: rgba(255, 174, 0, 0.18);
+
+  /* Text Hierarchy */
+  --text-primary: #FFFFFF;
+  --text-secondary: #D0D0D0;
+  --text-tertiary: #888888;
+  --text-muted: #555555;
+
+  /* Typography Families */
+  --font-display: 'Bebas Neue', 'Anton', 'Oswald', -apple-system, sans-serif;
+  --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-handwriting: 'Caveat', 'Playfair Display', cursive, serif;
+  --font-mono: 'Space Grotesk', monospace;
+
+  /* Typography Scales (Fluid Responsive Clamps) */
+  --text-hero: clamp(3.2rem, 9vw, 8.5rem);
+  --text-display-xl: clamp(2.8rem, 7vw, 6.5rem);
+  --text-display-lg: clamp(2.2rem, 5vw, 4.5rem);
+  --text-title: clamp(1.5rem, 3.2vw, 2.6rem);
+  --text-subtitle: clamp(1rem, 1.6vw, 1.25rem);
+  --text-body-lg: clamp(1rem, 1.3vw, 1.2rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-label: 0.72rem;
+
+  /* Letter Spacings (Positive to prevent overlapping/squishing) */
+  --tracking-editorial: 0.02em;
+  --tracking-tight: 0.01em;
+  --tracking-normal: 0.02em;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.14em;
+  --tracking-label: 0.22em;
+
+  /* Spacing */
+  --section-padding-y: clamp(5rem, 11vw, 9.5rem);
+  --section-padding-x: clamp(1.25rem, 5vw, 4rem);
+  --max-content-width: 1360px;
+  --navbar-height: 72px;
+
+  /* Sharp Borders & Minimal Radius */
+  --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+  --border-light: 1px solid rgba(255, 255, 255, 0.14);
+  --border-accent: 1px solid var(--accent-primary);
+  --radius-sharp: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.8);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.95);
+  --shadow-glow: 0 0 35px var(--accent-primary-glow);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-editorial: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Z-Index */
+  --z-base: 1;
+  --z-card: 10;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-cursor: 400;
+  --z-modal: 500;
+  --z-loader: 1000;
+}
