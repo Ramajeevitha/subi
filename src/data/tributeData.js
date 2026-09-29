@@ -30,7 +30,6 @@ export const tributeData = {
   ],
 
   hero: {
-    metadata: "SUBHICKSHUN NAREN • ATHLETE • 2014 — 2026",
     eyebrow: "A BIRTHDAY TRIBUTE",
     headingLine1: "FOR THE",
     headingLine2: "ATHLETE",

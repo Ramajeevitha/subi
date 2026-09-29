@@ -37,7 +37,6 @@ export const Hero = () => {
       <div className="site-container hero-content">
         {/* Campaign Metadata Bar */}
         <div className="hero-top-meta reveal-blur delay-1 is-revealed">
-          <span className="hero-meta-badge">{hero.metadata}</span>
           <span className="hero-meta-tag">{hero.eyebrow}</span>
         </div>
 
